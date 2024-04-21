@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/Join-IsAlive/pom.xml" />
         <option value="$PROJECT_DIR$/Synchronized-Keyword/pom.xml" />
         <option value="$PROJECT_DIR$/Thread-Priority/pom.xml" />
+        <option value="$PROJECT_DIR$/Inter-Thread-Communication/pom.xml" />
       </list>
     </option>
   </component>
