@@ -3,7 +3,15 @@ package org.example;
 class One extends Thread{
     public void run(){
         for (int i = 0; i < 5; i++) {
+
             System.out.println("Thread One");
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
         }
     }
 }
@@ -11,7 +19,15 @@ class One extends Thread{
 class Two extends Thread{
     public void run(){
         for (int i = 0; i < 5; i++) {
+
             System.out.println("Thread Two");
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
         }
     }
 }
