@@ -4,7 +4,7 @@ class Calculation{
 
     int num;
 
-    public void increment(){
+    synchronized public void increment(){
         num++;
     }
 }
@@ -33,10 +33,15 @@ public class Main {
         });
 
         t1.start();
-        t1.join();
-
         t2.start();
+        t1.join();
         t2.join();
+
+//        t1.start();
+//        t1.join();
+//
+//        t2.start();
+//        t2.join();
 
         System.out.println(calculation.num);
     }
