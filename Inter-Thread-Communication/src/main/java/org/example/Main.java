@@ -100,10 +100,30 @@ class Consumer implements Runnable{
 }
 
 public class Main {
+
     public static void main(String[] args) {
         Q q = new Q();
         new Producer(q);
         new Consumer(q);
 
     }
+
 }
+
+
+//Thread Life cycle
+//Thread States
+
+/*
+
+new
+Runnable
+Waiting
+Running
+Dead
+
+*/
+
+
+
+
