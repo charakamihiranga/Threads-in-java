@@ -1,13 +1,14 @@
 package org.example;
 
-class One extends Thread{
-    public void run(){
-        for (int i = 0; i < 5; i++) {
+class One implements Runnable{
 
+    @Override
+    public void run() {
+        for (int i = 0; i < 5 ; i++) {
             System.out.println("Thread One");
 
             try {
-                Thread.sleep(1000);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -16,14 +17,15 @@ class One extends Thread{
     }
 }
 
-class Two extends Thread{
-    public void run(){
-        for (int i = 0; i < 5; i++) {
+class Two implements Runnable{
 
+    @Override
+    public void run() {
+        for (int i = 0; i < 5; i++) {
             System.out.println("Thread Two");
 
             try {
-                Thread.sleep(1000);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -33,19 +35,19 @@ class Two extends Thread{
 }
 
 public class Main {
-
     public static void main(String[] args) {
-       One one = new One();
-       Two two = new Two();
-       one.start();
 
+        Runnable one = new One();
+        Runnable two = new Two();
+
+        Thread t1 = new Thread(one);
+        Thread t2 = new Thread(two);
+        t1.start();
         try {
             Thread.sleep(10);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
-        two.start();
+        t2.start();
     }
-
 }

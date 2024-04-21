@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Introduction" />
         <module name="Extend-Thread-Class" />
+        <module name="Implement-Runnable-Interface" />
       </profile>
     </annotationProcessing>
   </component>
