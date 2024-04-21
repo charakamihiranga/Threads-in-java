@@ -1,15 +1,49 @@
 package org.example;
 
 class Q{
+
     int num;
 
-    public void put(int num){
+    boolean value = false;
+
+    public synchronized void put(int num){
+
+        while(value){
+
+            //wait
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
         System.out.println("PUT :"+ num);
         this.num = num;
+
+        value = true;
+
+        //notify
+        notify();
+
     }
 
-    public void get(){
+    public synchronized void get(){
+
+        while (!value){
+            //wait
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
         System.out.println("GET :"+ num);
+        value = false;
+
+        //notify
+        notify();
     }
 }
 
@@ -67,6 +101,9 @@ class Consumer implements Runnable{
 
 public class Main {
     public static void main(String[] args) {
+        Q q = new Q();
+        new Producer(q);
+        new Consumer(q);
 
     }
 }

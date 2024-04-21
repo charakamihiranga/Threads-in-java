@@ -11,6 +11,7 @@
         <module name="Introduction" />
         <module name="Implement-Runnable-Interface" />
         <module name="Join-IsAlive" />
+        <module name="Inter-Thread-Communication" />
         <module name="Lambda-Expression" />
         <module name="Thread-Priority" />
       </profile>
