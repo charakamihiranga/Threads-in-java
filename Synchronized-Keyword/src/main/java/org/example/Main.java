@@ -43,6 +43,6 @@ public class Main {
 //        t2.start();
 //        t2.join();
 
-        System.out.println(calculation.num);
+        System.out.println("Current count : "+calculation.num);
     }
 }
