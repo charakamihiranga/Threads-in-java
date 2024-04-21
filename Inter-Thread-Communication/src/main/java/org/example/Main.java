@@ -28,7 +28,40 @@ class Producer implements Runnable{
         int i = 0;
         while(true){
             q.put(i++);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
+    }
+}
+
+
+class Consumer implements Runnable{
+
+    Q q;
+
+    public Consumer (Q q){
+        this.q = q;
+        Thread t = new Thread(this,"Consumer");
+        t.start();
+    }
+
+    @Override
+    public void run() {
+
+        int i = 0;
+
+        while(true){
+            q.get();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
     }
 }
 
